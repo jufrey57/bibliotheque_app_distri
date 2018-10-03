@@ -1,7 +1,9 @@
 package ch.makery.address;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
+import main.java.fr.ul.miage.db.DbConnector;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -69,6 +71,14 @@ public class MainApp extends Application {
     }
 
     public static void main(String[] args) {
-        launch(args);
+        
+        DbConnector conn = new DbConnector();
+		try {
+			conn.connect();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		launch(args);
     }
 }
