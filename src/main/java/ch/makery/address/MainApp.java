@@ -3,13 +3,13 @@ package ch.makery.address;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import main.java.fr.ul.miage.db.DbConnector;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import main.java.fr.ul.miage.db.DbConnector;
 
 public class MainApp extends Application {
 
@@ -71,14 +71,12 @@ public class MainApp extends Application {
     }
 
     public static void main(String[] args) {
-        
-        DbConnector conn = new DbConnector();
-		try {
-			conn.connect();
+    	try {
+			new DbConnector().connect();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		launch(args);
+        launch(args);
     }
 }
