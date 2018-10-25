@@ -25,6 +25,14 @@ public class Reservation {
 		this.oeuvre = oeuvre;
 	}
 
+	public Reservation(String iD, Date dateDemande, Usager usager, Oeuvre oeuvre) {
+		super();
+		ID = iD;
+		DateDemande = dateDemande;
+		this.usager = usager;
+		this.oeuvre = oeuvre;
+	}
+
 	public String getID() {
 		return ID;
 	}

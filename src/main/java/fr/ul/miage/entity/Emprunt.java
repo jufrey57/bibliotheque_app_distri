@@ -26,7 +26,14 @@ public class Emprunt {
 		Exeplaire = exeplaire;
 	}
 
-	
+	public Emprunt(String iD, Date dateDebut, Date dateRetour, Usager usager, Exemplaire exeplaire) {
+		super();
+		ID = iD;
+		DateDebut = dateDebut;
+		DateRetour = dateRetour;
+		Usager = usager;
+		Exeplaire = exeplaire;
+	}
 
 	public String getID() {
 		return ID;

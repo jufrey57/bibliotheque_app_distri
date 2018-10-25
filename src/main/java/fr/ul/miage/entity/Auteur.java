@@ -16,6 +16,13 @@ public class Auteur {
 		Prenom = prenom;
 	}
 	
+	public Auteur(String id, String nom, String prenom) {
+		super();
+		ID = id;
+		Nom = nom;
+		Prenom = prenom;
+	}
+	
 	public String getID() {
 		return ID;
 	}
