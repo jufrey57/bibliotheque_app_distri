@@ -22,14 +22,13 @@ public class Auteurs {
 		Elements = elements;
 	}
 	
-	public ArrayList<Auteur> findOnName(String name) {
-		ArrayList<Auteur> res = new ArrayList();
+	public Auteur findOnName(String name) {
 		for (Auteur elt : Elements) {
 			if(elt.getNom().equals(name)) {
-				res.add(elt);
+				return elt;
 			}
 		}
-		return res;
+		return null;
 	}
 	
 	public Auteur findOnID(String id) {

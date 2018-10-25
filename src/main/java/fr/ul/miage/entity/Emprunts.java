@@ -25,13 +25,23 @@ public class Emprunts {
 	
 	
 	
-	public Emprunt findOnID(Usager usager, Exemplaire exemplaire) {
+	public Emprunt find(Usager usager, Exemplaire exemplaire) {
 		for (Emprunt elt : Elements) {
 			if(elt.getUsager().equals(usager) && elt.getExeplaire().equals(exemplaire)) {
 				return elt;
 			}
 		}
 		return null;
+	}
+	
+	public ArrayList<Emprunt> find(Oeuvre o) {
+		ArrayList<Emprunt> res = new ArrayList();
+		for (Emprunt elt : Elements) {
+			if(elt.getExeplaire().getOeuvre().equals(o)) {
+				res.add(elt);
+			}
+		}
+		return res;
 	}
 	
 }

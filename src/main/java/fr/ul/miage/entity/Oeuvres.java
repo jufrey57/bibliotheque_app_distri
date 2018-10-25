@@ -23,14 +23,13 @@ public class Oeuvres {
 		Elements = elements;
 	}
 	
-	public ArrayList<Oeuvre> findOnTitle(String title) {
-		ArrayList<Oeuvre> res = new ArrayList();
+	public Oeuvre findOnTitle(String title) {
 		for (Oeuvre elt : Elements) {
 			if(elt.getNom().equals(title)) {
-				res.add(elt);
+				return elt;
 			}
 		}
-		return res;
+		return null;
 	}
 	
 	public Oeuvre findOnID(String id) {

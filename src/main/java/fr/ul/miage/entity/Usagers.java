@@ -23,14 +23,13 @@ public class Usagers {
 		Elements = elements;
 	}
 	
-	public ArrayList<Usager> find(String nom, String prenom){
-		ArrayList<Usager> res = new ArrayList();
+	public Usager find(String nom, String prenom){
 		for(Usager elt : Elements) {
 			if(elt.getNom().equals(nom) && elt.getPrenom().equals(prenom)) {
-				res.add(elt);
+				return elt;
 			}
 		}
-		return res;
+		return null;
 	}
 	
 	public Usager find(Usager usager){

@@ -19,7 +19,7 @@ public class GestionUsagers {
 		return usagers.find(usager);
 	}
 	
-	public ArrayList<Usager> findUsager(String nom, String prenom) {
+	public Usager findUsager(String nom, String prenom) {
 		return usagers.find(nom, prenom);
 	}
 	

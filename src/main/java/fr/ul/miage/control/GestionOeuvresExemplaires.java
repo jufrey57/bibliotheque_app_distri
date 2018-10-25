@@ -21,7 +21,7 @@ public class GestionOeuvresExemplaires {
 		return o;
 	}
 	
-	public ArrayList<Oeuvre> trouverOeuvre(String nom) {
+	public Oeuvre trouverOeuvre(String nom) {
 		return oeuvres.findOnTitle(nom);
 	}
 	
@@ -41,7 +41,7 @@ public class GestionOeuvresExemplaires {
 		}
 	}
 	
-	public ArrayList<Auteur> trouverAuteur(String nom) {
+	public Auteur trouverAuteur(String nom) {
 		return auteurs.findOnName(nom);
 	}
 	
