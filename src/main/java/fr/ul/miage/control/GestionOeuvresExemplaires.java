@@ -8,6 +8,7 @@ import fr.ul.miage.entity.Exemplaire;
 import fr.ul.miage.entity.Exemplaires;
 import fr.ul.miage.entity.Oeuvre;
 import fr.ul.miage.entity.Oeuvres;
+import main.java.fr.ul.miage.db.DbConnector;
 
 public class GestionOeuvresExemplaires {
 
@@ -18,6 +19,7 @@ public class GestionOeuvresExemplaires {
 	public Oeuvre creerOeuvre(String nom, Auteur auteur) {
 		Oeuvre o = new Oeuvre(nom,auteur);
 		oeuvres.getElements().add(o);
+		DbConnector.putOeuvre(o);
 		return o;
 	}
 	
@@ -26,18 +28,23 @@ public class GestionOeuvresExemplaires {
 	}
 	
 	public void supprimerOeuvre(Oeuvre oeuvre) {
-		oeuvres.getElements().remove(oeuvres.findOnID(oeuvre.getID()));
+		if(oeuvres.getElements().contains(oeuvre)) {
+			oeuvres.getElements().remove(oeuvre);
+			DbConnector.delOeuvre(oeuvre.getID());
+		}
 	}
 	
 	public Auteur creerAuteur(String nom, String prenom) {
 		Auteur a = new Auteur(nom,prenom);
 		auteurs.getElements().add(a);
+		DbConnector.putAuteur(a);
 		return a;
 	}
 	
 	public void supprimerAuteur(Auteur auteur) {
 		if(auteurs.getElements().contains(auteur)) {
 			auteurs.getElements().remove(auteur);
+			DbConnector.delAuteur(auteur.getID());
 		}
 	}
 	
@@ -48,6 +55,7 @@ public class GestionOeuvresExemplaires {
 	public Exemplaire creerExemplaire(Oeuvre o) {
 		Exemplaire e = new Exemplaire(o);
 		exemplaires.getElements().add(e);
+		DbConnector.putExemplaire(e);
 		return e;
 	}
 	
@@ -56,6 +64,9 @@ public class GestionOeuvresExemplaires {
 	}
 	
 	public void supprimerExemplaire(Exemplaire exemplaire) {
-		exemplaires.getElements().remove(exemplaires.findOnID(exemplaire.getID()));
+		if(exemplaires.getElements().contains(exemplaire)) {
+			exemplaires.getElements().remove(exemplaire);
+			DbConnector.delExemplaire(exemplaire.getID());
+		}
 	}
 }
