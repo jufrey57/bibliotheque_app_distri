@@ -16,6 +16,14 @@ public class Exemplaire {
 		Oeuvre = oeuvre;
 	}
 
+	public Exemplaire(String iD, Oeuvre oeuvre, String vices, Date dateAcquisition) {
+		super();
+		ID = iD;
+		Oeuvre = oeuvre;
+		Vices = vices;
+		DateAcquisition = dateAcquisition;
+	}
+
 	public String getID() {
 		return ID;
 	}

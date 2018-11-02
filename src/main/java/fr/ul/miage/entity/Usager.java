@@ -20,6 +20,17 @@ public class Usager {
 		this.mail = mail;
 	}
 	
+	public Usager(String iD, String nom, String prenom, int age, String mail, boolean abonnementValide, int retards) {
+		super();
+		ID = iD;
+		Nom = nom;
+		Prenom = prenom;
+		Age = age;
+		this.mail = mail;
+		AbonnementValide = abonnementValide;
+		Retards = retards;
+	}
+
 	public void addRetard() {
 		Retards +=1 ;
 	}

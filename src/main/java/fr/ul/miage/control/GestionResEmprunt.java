@@ -16,6 +16,7 @@ import fr.ul.miage.entity.Reservation;
 import fr.ul.miage.entity.Reservations;
 import fr.ul.miage.entity.Usager;
 import fr.ul.miage.entity.Usagers;
+import main.java.fr.ul.miage.db.DbConnector;
 
 public class GestionResEmprunt {
 
@@ -34,6 +35,7 @@ public class GestionResEmprunt {
 		if(usager!=null && oeuvre!=null) {
 			Reservation res = new Reservation(usager,oeuvre);
 			reservations.getElements().add(res);
+			DbConnector.putReservation(res);
 			LOGGER.log(Level.FINEST, "Reservation bien effectuée");
 		}else {
 			if(usager==null) {
@@ -56,6 +58,7 @@ public class GestionResEmprunt {
 				annulerRes(usager,oeuvre);
 				Emprunt emp = new Emprunt(usager,ex.get(0));
 				emprunts.getElements().add(emp);
+				DbConnector.putEmprunt(emp);
 				LOGGER.log(Level.FINEST, "Emprunt bien effectué");
 			}
 		}else {
@@ -72,7 +75,9 @@ public class GestionResEmprunt {
 		Usager u = usagers.find(usager);
 		Oeuvre o = oeuvres.findOnID(oeuvre.getID());
 		if(o!=null && u!=null) {
-			reservations.annul(reservations.find(o, u));
+			Reservation res = reservations.find(o, u);
+			reservations.annul(res);
+			DbConnector.delReservation(res.getID());
 		}else {
 			if(u==null) {
 				LOGGER.log(Level.FINE, "Usager non trouvé");
@@ -102,6 +107,7 @@ public class GestionResEmprunt {
 				}
 				//destruction d'emprunt
 				emprunts.getElements().remove(emprunt);
+				DbConnector.delEmprunt(emprunt.getID());
 				//notify
 				ArrayList<Emprunt> e = emprunts.find(oeuvre);
 				if(e.isEmpty()) {

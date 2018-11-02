@@ -10,6 +10,7 @@ public class Reservation {
 	private Date DateDemande;
 	private Usager usager;
 	private Oeuvre oeuvre;
+	private boolean active = true;
 	
 	public Reservation(Usager usager, Oeuvre oeuvre) {
 		super();
@@ -23,6 +24,23 @@ public class Reservation {
 		DateDemande = date;
 		this.usager = usager;
 		this.oeuvre = oeuvre;
+	}
+
+	public Reservation(String iD, Date dateDemande, Usager usager, Oeuvre oeuvre) {
+		super();
+		ID = iD;
+		DateDemande = dateDemande;
+		this.usager = usager;
+		this.oeuvre = oeuvre;
+	}
+
+	public Reservation(String iD, Date dateDemande, Usager usager, Oeuvre oeuvre, boolean active) {
+		super();
+		ID = iD;
+		DateDemande = dateDemande;
+		this.usager = usager;
+		this.oeuvre = oeuvre;
+		this.active = active;
 	}
 
 	public String getID() {
@@ -43,6 +61,14 @@ public class Reservation {
 
 	public Oeuvre getOeuvre() {
 		return oeuvre;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 
 	@Override

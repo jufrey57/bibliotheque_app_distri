@@ -23,6 +23,14 @@ public class Oeuvre {
 		Auteurs.add(auteur);
 	}
 
+	public Oeuvre(String iD, String nom, ArrayList<Auteur> auteurs, int nbrResa) {
+		super();
+		ID = iD;
+		Nom = nom;
+		Auteurs = auteurs;
+		this.nbrResa = nbrResa;
+	}
+
 	public String getID() {
 		return ID;
 	}

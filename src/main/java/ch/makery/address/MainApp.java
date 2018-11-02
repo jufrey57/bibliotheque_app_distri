@@ -3,6 +3,7 @@ package ch.makery.address;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import fr.ul.miage.entity.Auteur;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -71,12 +72,16 @@ public class MainApp extends Application {
     }
 
     public static void main(String[] args) {
+    	DbConnector db = new DbConnector();
     	try {
-			new DbConnector().connect();
+    		Auteur a = new Auteur("Chuck","Norris");
+			db.connect();
+			//db.enterAuteur(a);
+			db.getAuteur(a.getNom());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        launch(args);
+        //launch(args);
     }
 }
